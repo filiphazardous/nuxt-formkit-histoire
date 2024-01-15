@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --container-width: 960px;
+    --header-height: 56px;
+    --header-height-slim: 40px;
+    --menu-level-1-height: 60px;
+  }
+
+  @media (min-width: 880px) {
+    :root {
+      --header-height: 88px;
+      --header-height-slim: 64px;
+    }
+  }
+
+  @font-face {
+    font-family: 'Paralucent Condensed';
+    src:
+      url('./assets/fonts/ParalucentCond-Bold.woff2') format('woff2'),
+      url('./assets/fonts/ParalucentCond-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Paralucent Condensed';
+    src:
+      url('./assets/fonts/ParalucentCond-Medium.woff2') format('woff2'),
+      url('./assets/fonts/ParalucentCond-Medium.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Paralucent Condensed';
+    src:
+      url('./assets/fonts/ParalucentCond-Light.woff2') format('woff2'),
+      url('./assets/fonts/ParalucentCond-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    overflow-y: auto !important;
+    -webkit-font-smoothing: antialiased;
+
+    @apply !font-lato;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Change Autocomplete styles in Webkit browsers*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: #4d4d4d;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  body {
+    @apply text-text antialiased;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+  }
+  code {
+    @apply font-mono;
+  }
+}
+
+/* for tailwind intellisense completion, add jss to tailwind.config.js */
+
+@layer components {
+  .storybook-popup::before,
+  .storybook-popup::after {
+    --scale: 0;
+    --opacity: 0;
+    --delay: 0;
+
+    @apply z-10 absolute bottom-[-2px] left-1/2 transform -translate-x-1/2 translate-y-[var(--translate-y)] scale-[var(--scale)] transition-all origin-top-center duration-150 delay-[--delay] ease-out opacity-[var(--opacity)];
+  }
+
+  .storybook-popup::before {
+    --translate-y: calc(100% + 8px);
+
+    @apply content-['Click_to_copy'] text-white px-2 py-1 rounded text-center w-max bg-black/80;
+  }
+  .storybook-popup:hover::before,
+  .storybook-popup:hover::after {
+    --scale: 1;
+    --opacity: 1;
+    --delay: 500ms;
+  }
+
+  .storybook-popup::after {
+    --translate-y: 8px;
+
+    @apply content-[''] border-8 border-solid border-l-transparent border-r-transparent border-t-transparent border-b-black/80 origin-bottom-center;
+  }
+
+  code.storybook-popup {
+    @apply font-mono;
+  }
+
+  code.storybook-popup::before {
+    @apply font-paralucent;
+  }
+
+  .path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+
+  .circle {
+    -webkit-animation: dash 0.9s ease-in-out;
+    animation: dash 0.9s ease-in-out;
+  }
+
+  .line {
+    stroke-dashoffset: 1000;
+    -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;
+    animation: dash 0.9s 0.35s ease-in-out forwards;
+  }
+
+  .check {
+    stroke-dashoffset: -100;
+    -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;
+    animation: dash-check 0.9s 0.35s ease-in-out forwards;
+  }
+
+  @-webkit-keyframes dash {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @-webkit-keyframes dash-check {
+    0% {
+      stroke-dashoffset: -100;
+    }
+
+    100% {
+      stroke-dashoffset: 900;
+    }
+  }
+
+  @keyframes dash-check {
+    0% {
+      stroke-dashoffset: -100;
+    }
+
+    100% {
+      stroke-dashoffset: 900;
+    }
+  }
+}

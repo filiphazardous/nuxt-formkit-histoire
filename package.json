@@ -13,10 +13,20 @@
     "preview:story": "histoire preview"
   },
   "devDependencies": {
+    "@formkit/tailwindcss": "^1.4.0",
+    "@formkit/themes": "^1.4.0",
     "@histoire/plugin-nuxt": "^0.17.8",
     "@histoire/plugin-vue": "^0.17.8",
+    "@nuxtjs/tailwindcss": "^6.10.4",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "histoire": "^0.17.8",
     "nuxt": "^3.9.1",
+    "tailwind-merge": "^2.2.0",
+    "tailwind-variants": "^0.1.20",
+    "tailwindcss": "^3.4.1",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
