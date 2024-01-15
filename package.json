@@ -7,15 +7,21 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "dev:story": "histoire dev",
+    "build:story": "histoire build",
+    "preview:story": "histoire preview"
   },
   "devDependencies": {
+    "@histoire/plugin-nuxt": "^0.17.8",
+    "@histoire/plugin-vue": "^0.17.8",
+    "histoire": "^0.17.8",
     "nuxt": "^3.9.1",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@formkit/nuxt": "latest",
-    "@formkit/icons": "latest"
+    "@formkit/icons": "latest",
+    "@formkit/nuxt": "latest"
   }
 }
